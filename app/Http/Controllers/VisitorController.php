@@ -29,15 +29,12 @@ class VisitorController extends Controller
 
         $location = $weatherData['location'];
 
-        $exact_location = $location['region']. ','.$location['country'];
+        $exact_location = $location['region'];
 
         $temperature = $weatherData['current']['temp_c'];
 
 
-        return response()->json([
-            'status' => 'success',
-            'message' =>['client_ip' => $ip,'location' =>  $exact_location,'greeting' => "Hello, $visitorName !, the temperature is  $temperature degree celcius in  $exact_location"]
-            ],200);
+        return response()->json(['client_ip' => $ip,'location' =>  $exact_location,'greeting' => "Hello, $visitorName !, the temperature is  $temperature degree celcius in  $exact_location"],200);
 
     }
 }
